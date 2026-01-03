@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CADL State (tracked separately or ephemeral)
+# Uncomment if you don't want state in git:
+# .claude/state/
+
+# Logs
+*.log
+logs/
+
+# Build outputs
+dist/
+build/
