@@ -1,114 +1,98 @@
 # Task Queue
 
-## Priority 1 (Critical) - Week 1 Foundation
+## Week 1 Foundation - COMPLETE ✅
+All 16 tasks completed. See completed.md.
 
-- [ ] TASK-001: Create explorer agent definition
+## Week 2: Testing & Validation
+
+### Priority 1 (Critical) - Smoke Tests
+
+- [ ] TASK-017: Test loop-control hook manually
+  - Status: ready
+  - Est: 15 mins
+  - Agent: tester
+  - Dependencies: none
+  - Notes: Run hook directly, verify JSON output
+
+- [ ] TASK-018: Test pre-commit hook manually
+  - Status: ready
+  - Est: 15 mins
+  - Agent: tester
+  - Dependencies: none
+  - Notes: Run with passing/failing scenarios
+
+- [ ] TASK-019: Test orchestrator state file reading
   - Status: ready
   - Est: 20 mins
-  - Files: .claude/agents/explorer.md
+  - Agent: tester
   - Dependencies: none
-  - Notes: Read-only codebase search, uses Sonnet
+  - Notes: Verify orchestrator reads all state files correctly
 
-- [ ] TASK-002: Create implementer agent definition
-  - Status: ready
-  - Est: 20 mins
-  - Files: .claude/agents/implementer.md
-  - Dependencies: none
-  - Notes: Write access, uses Opus for complex work
+### Priority 2 (High) - Integration Tests
 
-- [ ] TASK-003: Create tester agent definition
-  - Status: ready
-  - Est: 15 mins
-  - Files: .claude/agents/tester.md
-  - Dependencies: none
-  - Notes: Runs tests, writes new tests, uses Sonnet
-
-- [ ] TASK-004: Create reviewer agent definition
-  - Status: ready
-  - Est: 15 mins
-  - Files: .claude/agents/reviewer.md
-  - Dependencies: none
-  - Notes: Code review, quality check, uses Opus
-
-- [ ] TASK-005: Create debugger agent definition
-  - Status: ready
-  - Est: 15 mins
-  - Files: .claude/agents/debugger.md
-  - Dependencies: none
-  - Notes: Diagnose and fix issues, uses Opus
-
-- [ ] TASK-006: Create orchestrator agent definition
-  - Status: ready
+- [ ] TASK-020: Test single task execution flow
+  - Status: blocked
   - Est: 30 mins
-  - Files: .claude/agents/orchestrator.md
-  - Dependencies: TASK-001 through TASK-005
-  - Notes: Coordinates all specialists, uses Sonnet
+  - Agent: tester
+  - Dependencies: TASK-017, TASK-018, TASK-019
+  - Notes: Orchestrator picks task, dispatches, updates state
 
-## Priority 2 (High) - Week 1 Skills
-
-- [ ] TASK-007: Create context-rotate skill
+- [ ] TASK-021: Test context rotation trigger
   - Status: ready
   - Est: 25 mins
-  - Files: .claude/skills/context-rotate/SKILL.md
+  - Agent: tester
   - Dependencies: none
-  - Notes: Manages context window, triggers at 60%
+  - Notes: Verify rotation triggers at 60% threshold
 
-- [ ] TASK-008: Create task-decompose skill
+- [ ] TASK-022: Test handoff file creation
   - Status: ready
   - Est: 20 mins
-  - Files: .claude/skills/task-decompose/SKILL.md
+  - Agent: tester
   - Dependencies: none
-  - Notes: Breaks large tasks into atomic units
+  - Notes: Verify /handoff creates proper handoff.md
 
-- [ ] TASK-009: Create quality-gate skill
-  - Status: ready
+### Priority 3 (Medium) - Loop Tests
+
+- [ ] TASK-023: Test 30-minute autonomous loop
+  - Status: blocked
+  - Est: 45 mins
+  - Agent: tester
+  - Dependencies: TASK-020
+  - Notes: Run loop, verify multiple tasks complete
+
+- [ ] TASK-024: Test loop stop conditions
+  - Status: blocked
   - Est: 20 mins
-  - Files: .claude/skills/quality-gate/SKILL.md
-  - Dependencies: none
-  - Notes: Evaluates work quality before proceeding
+  - Agent: tester
+  - Dependencies: TASK-020
+  - Notes: Empty queue, blocked item, rate limit
 
-- [ ] TASK-010: Create rate-monitor skill
-  - Status: ready
-  - Est: 20 mins
-  - Files: .claude/skills/rate-monitor/SKILL.md
-  - Dependencies: none
-  - Notes: Tracks Opus vs Sonnet usage for Max sub
+- [ ] TASK-025: Test recovery from handoff
+  - Status: blocked
+  - Est: 25 mins
+  - Agent: tester
+  - Dependencies: TASK-022
+  - Notes: Create handoff, clear, resume from state
 
-## Priority 3 (Medium) - Week 1 Hooks
+### Priority 4 (Low) - Documentation
 
-- [ ] TASK-011: Create pre-commit hook
+- [ ] TASK-026: Write TESTING.md guide
   - Status: ready
   - Est: 30 mins
-  - Files: .claude/hooks/pre-commit.sh, .claude/settings.json
+  - Agent: implementer
   - Dependencies: none
-  - Notes: Blocks commits if tests fail
+  - Notes: How to run and verify CADL tests
 
-- [ ] TASK-012: Create loop-control hook
+- [ ] TASK-027: Write TROUBLESHOOTING.md guide
   - Status: ready
   - Est: 30 mins
-  - Files: .claude/hooks/loop-control.sh
+  - Agent: implementer
   - Dependencies: none
-  - Notes: Enables continuous operation via Stop hook
+  - Notes: Common issues and solutions
 
-## Priority 4 (Low) - Week 1 Commands
-
-- [ ] TASK-013: Create /loop slash command
-  - Status: ready
-  - Est: 20 mins
-  - Files: .claude/commands/loop.md
-  - Dependencies: TASK-006, TASK-012
-  - Notes: Starts autonomous development loop
-
-- [ ] TASK-014: Create /status slash command
+- [ ] TASK-028: Update README with Week 1 completion
   - Status: ready
   - Est: 15 mins
-  - Files: .claude/commands/status.md
+  - Agent: implementer
   - Dependencies: none
-  - Notes: Shows current state, queue, progress
-
-- [ ] TASK-015: Create /handoff slash command
-  - Status: ready
-  - Est: 15 mins
-  - Files: .claude/commands/handoff.md
-  - Dependencies: TASK-007
-  - Notes: Prepares state for session transition
+  - Notes: Update status, add usage examples
