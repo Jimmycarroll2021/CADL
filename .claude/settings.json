@@ -1,0 +1,36 @@
+{
+  "$schema": "https://code.claude.com/schema/settings.json",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash(git commit*)",
+        "hooks": [".claude/hooks/pre-commit.sh"]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [".claude/hooks/loop-control.sh"]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm *)",
+      "Bash(git *)",
+      "Bash(cat *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Read(*)",
+      "Write(.claude/**)",
+      "Write(src/**)",
+      "Write(tests/**)",
+      "Write(docs/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(sudo *)"
+    ]
+  }
+}
