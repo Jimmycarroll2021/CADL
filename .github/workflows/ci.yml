@@ -1,0 +1,109 @@
+name: CADL Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-hooks:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Make scripts executable
+        run: |
+          chmod +x .claude/hooks/*.sh
+          chmod +x scripts/*.sh
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Run hook tests
+        run: ./scripts/test-hooks.sh
+
+  validate-structure:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate state files exist
+        run: |
+          test -f .claude/state/task-queue.md
+          test -f .claude/state/completed.md
+          test -f .claude/state/in-progress.md
+          test -f .claude/state/blocked.md
+          test -f .claude/state/decisions.md
+          test -f .claude/state/usage-log.md
+          echo "✅ All state files present"
+
+      - name: Validate agent files exist
+        run: |
+          test -f .claude/agents/orchestrator.md
+          test -f .claude/agents/explorer.md
+          test -f .claude/agents/implementer.md
+          test -f .claude/agents/tester.md
+          test -f .claude/agents/reviewer.md
+          test -f .claude/agents/debugger.md
+          echo "✅ All agent files present"
+
+      - name: Validate skill files exist
+        run: |
+          test -f .claude/skills/context-rotate/SKILL.md
+          test -f .claude/skills/task-decompose/SKILL.md
+          test -f .claude/skills/quality-gate/SKILL.md
+          test -f .claude/skills/rate-monitor/SKILL.md
+          echo "✅ All skill files present"
+
+      - name: Validate command files exist
+        run: |
+          test -f .claude/commands/loop.md
+          test -f .claude/commands/status.md
+          test -f .claude/commands/handoff.md
+          echo "✅ All command files present"
+
+      - name: Validate hook files exist
+        run: |
+          test -f .claude/hooks/loop-control.sh
+          test -f .claude/hooks/pre-commit.sh
+          echo "✅ All hook files present"
+
+      - name: Validate settings.json
+        run: |
+          cat .claude/settings.json | jq . > /dev/null
+          echo "✅ settings.json is valid JSON"
+
+  lint-markdown:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check markdown files exist
+        run: |
+          test -f README.md
+          test -f CLAUDE.md
+          test -f TESTING.md
+          test -f TROUBLESHOOTING.md
+          echo "✅ All documentation files present"
+
+  shellcheck:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Lint shell scripts
+        run: |
+          shellcheck .claude/hooks/*.sh scripts/*.sh || true
+          echo "Shell scripts checked (warnings allowed)"
