@@ -1,9 +1,11 @@
 # Task Queue
 
-## Week 1 Foundation - COMPLETE ✅
-All 16 tasks completed. See completed.md.
+## Week 1: Foundation - COMPLETE ✅
+## Week 2: Testing Infrastructure - COMPLETE ✅
 
-## Week 2: Testing & Validation
+---
+
+## Week 2: Manual Testing - REMAINING
 
 ### Priority 1 (Critical) - Smoke Tests
 
@@ -11,22 +13,19 @@ All 16 tasks completed. See completed.md.
   - Status: ready
   - Est: 15 mins
   - Agent: tester
-  - Dependencies: none
-  - Notes: Run hook directly, verify JSON output
+  - Notes: Run hook directly in terminal, verify JSON output
 
 - [ ] TASK-018: Test pre-commit hook manually
   - Status: ready
   - Est: 15 mins
   - Agent: tester
-  - Dependencies: none
-  - Notes: Run with passing/failing scenarios
+  - Notes: Test with passing and failing scenarios
 
 - [ ] TASK-019: Test orchestrator state file reading
   - Status: ready
   - Est: 20 mins
   - Agent: tester
-  - Dependencies: none
-  - Notes: Verify orchestrator reads all state files correctly
+  - Notes: Start Claude Code, verify it reads all state files
 
 ### Priority 2 (High) - Integration Tests
 
@@ -35,21 +34,19 @@ All 16 tasks completed. See completed.md.
   - Est: 30 mins
   - Agent: tester
   - Dependencies: TASK-017, TASK-018, TASK-019
-  - Notes: Orchestrator picks task, dispatches, updates state
+  - Notes: Full cycle: pick task → dispatch → complete → update state
 
 - [ ] TASK-021: Test context rotation trigger
   - Status: ready
   - Est: 25 mins
   - Agent: tester
-  - Dependencies: none
-  - Notes: Verify rotation triggers at 60% threshold
+  - Notes: Simulate high context, verify skill triggers
 
 - [ ] TASK-022: Test handoff file creation
   - Status: ready
   - Est: 20 mins
   - Agent: tester
-  - Dependencies: none
-  - Notes: Verify /handoff creates proper handoff.md
+  - Notes: Run /handoff, verify handoff.md created correctly
 
 ### Priority 3 (Medium) - Loop Tests
 
@@ -58,41 +55,29 @@ All 16 tasks completed. See completed.md.
   - Est: 45 mins
   - Agent: tester
   - Dependencies: TASK-020
-  - Notes: Run loop, verify multiple tasks complete
+  - Notes: Run /loop, verify multiple tasks complete
 
 - [ ] TASK-024: Test loop stop conditions
   - Status: blocked
   - Est: 20 mins
   - Agent: tester
   - Dependencies: TASK-020
-  - Notes: Empty queue, blocked item, rate limit
+  - Notes: Test empty queue, blocked item, rate limit scenarios
 
 - [ ] TASK-025: Test recovery from handoff
   - Status: blocked
   - Est: 25 mins
   - Agent: tester
   - Dependencies: TASK-022
-  - Notes: Create handoff, clear, resume from state
+  - Notes: Create handoff → clear → resume from state
 
-### Priority 4 (Low) - Documentation
+---
 
-- [ ] TASK-026: Write TESTING.md guide
-  - Status: ready
-  - Est: 30 mins
-  - Agent: implementer
-  - Dependencies: none
-  - Notes: How to run and verify CADL tests
+## Backlog
 
-- [ ] TASK-027: Write TROUBLESHOOTING.md guide
-  - Status: ready
-  - Est: 30 mins
-  - Agent: implementer
-  - Dependencies: none
-  - Notes: Common issues and solutions
+These require manual testing to complete. Run them in Claude Code:
 
-- [ ] TASK-028: Update README with Week 1 completion
-  - Status: ready
-  - Est: 15 mins
-  - Agent: implementer
-  - Dependencies: none
-  - Notes: Update status, add usage examples
+1. Clone repo locally
+2. `chmod +x .claude/hooks/*.sh scripts/*.sh`
+3. Start `claude` in the directory
+4. Work through tasks TASK-017 through TASK-025
