@@ -4,6 +4,7 @@
     "ai-agent",
     "backlog"
   ],
+  "retry": 1,
   "task_id": "task_007a9f47db3a",
   "title": "ticket GitHub SSH issue bridge smoke test for Slack Agent Team with acce"
 }

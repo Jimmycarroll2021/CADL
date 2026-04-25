@@ -25,16 +25,14 @@ jobs:
             const fs = require("fs");
             const path = require("path");
 
-            const changed = new Set();
-            for (const commit of context.payload.commits || []) {
-              for (const file of [...(commit.added || []), ...(commit.modified || [])]) {
-                if (file.startsWith(".github/slack-agent-issues/") && file.endsWith(".json")) {
-                  changed.add(file);
-                }
-              }
-            }
+            const queueDir = path.join(process.cwd(), ".github", "slack-agent-issues");
+            const queued = fs.existsSync(queueDir)
+              ? fs.readdirSync(queueDir)
+                  .filter((file) => file.endsWith(".json"))
+                  .map((file) => path.join(".github", "slack-agent-issues", file))
+              : [];
 
-            for (const file of changed) {
+            for (const file of queued) {
               const fullPath = path.join(process.cwd(), file);
               if (!fs.existsSync(fullPath)) {
                 continue;
