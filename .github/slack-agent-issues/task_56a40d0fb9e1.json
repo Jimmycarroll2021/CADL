@@ -1,0 +1,9 @@
+{
+  "body": "ticket Agent Team Mock Project mock-20260425-200920: build an export approval workflow that starts in Slack, creates a clean backlog item, queues a GitHub issue, and tracks the work on the local Notion-style board. Acceptance criteria: Slack request is captured, GitHub issue exists, approval flow is auditable.\n\n## Acceptance criteria\n- Requirement is linked to the source Slack thread\n- Acceptance criteria are confirmed by a human owner\n- Dependencies are captured or explicitly marked unknown\n\n## Dependencies\n- None captured yet\n\n## Agent metadata\n- Task ID: task_56a40d0fb9e1\n- Requested by: UMOCKREQUESTER\n- Source thread: n/a",
+  "labels": [
+    "ai-agent",
+    "backlog"
+  ],
+  "task_id": "task_56a40d0fb9e1",
+  "title": "ticket Agent Team Mock Project mock-20260425-200920: build an export app"
+}
