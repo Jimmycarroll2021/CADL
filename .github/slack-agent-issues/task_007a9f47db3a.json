@@ -1,0 +1,9 @@
+{
+  "body": "ticket GitHub SSH issue bridge smoke test for Slack Agent Team with acceptance criteria that a real GitHub issue request is queued through CADL.\n\n## Acceptance criteria\n- Requirement is linked to the source Slack thread\n- Acceptance criteria are confirmed by a human owner\n- Dependencies are captured or explicitly marked unknown\n\n## Dependencies\n- None captured yet\n\n## Agent metadata\n- Task ID: task_007a9f47db3a\n- Requested by: USMOKE\n- Source thread: n/a",
+  "labels": [
+    "ai-agent",
+    "backlog"
+  ],
+  "task_id": "task_007a9f47db3a",
+  "title": "ticket GitHub SSH issue bridge smoke test for Slack Agent Team with acce"
+}
