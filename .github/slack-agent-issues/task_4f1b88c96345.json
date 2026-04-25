@@ -1,9 +1,0 @@
-{
-  "body": "ticket PropertyPeek F6.1c: Comparable-sales feature engineering. Milestone M2; status in_progress; points 5; owner agent(s) ml-trainer; supervisor DataScientist. Story: Comparable-sales feature engineering scoped from Board.md as the pre-F6.2 PropertyPeek smoke story. Acceptance: k=5 comps by suburb, bedrooms, bathrooms and land band; 90-day window; vault leakage guard; DataScientist INCLUDE or DROP decision before F6.2. Dependencies: F6.1a, F8.6, F8.7. Evidence paths: none yet. This is an orchestration smoke only: create the Slack/Notion/GitHub handoff, do not run model training, scrapers, migrations, or production changes. This story is present in Board.md but missing from backlog.yaml; smoke must flag reconciliation.\n\n## Acceptance criteria\n- Requirement is linked to the source Slack thread\n- Acceptance criteria are confirmed by a human owner\n- Dependencies are captured or explicitly marked unknown\n\n## Dependencies\n- None captured yet\n\n## Agent metadata\n- Task ID: task_4f1b88c96345\n- Requested by: UPROPERTYREQUESTER\n- Source thread: propertypeek-thread-pp-team-20260425-223243",
-  "labels": [
-    "ai-agent",
-    "backlog"
-  ],
-  "task_id": "task_4f1b88c96345",
-  "title": "ticket PropertyPeek F6.1c: Comparable-sales feature engineering. Milesto"
-}
