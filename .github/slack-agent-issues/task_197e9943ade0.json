@@ -1,0 +1,9 @@
+{
+  "body": "ticket Agent Team End-to-End Project team-20260425-214011: build a customer export approval workflow. The workflow starts from a Slack request, creates a clean backlog item, writes the project card to Notion, queues a GitHub implementation issue, hands product context to Claude, tradeoff analysis to Gemini, implementation planning to Grace and Codex, then asks Releaser for human deployment approval. Acceptance criteria: shared thread is preserved, GitHub issue exists, Notion cards exist, agent docs are written, release approval is auditable.\n\n## Acceptance criteria\n- Requirement is linked to the source Slack thread\n- Acceptance criteria are confirmed by a human owner\n- Dependencies are captured or explicitly marked unknown\n\n## Dependencies\n- None captured yet\n\n## Agent metadata\n- Task ID: task_197e9943ade0\n- Requested by: UTEAMREQUESTER\n- Source thread: team-thread-team-20260425-214011",
+  "labels": [
+    "ai-agent",
+    "backlog"
+  ],
+  "task_id": "task_197e9943ade0",
+  "title": "ticket Agent Team End-to-End Project team-20260425-214011: build a custo"
+}
